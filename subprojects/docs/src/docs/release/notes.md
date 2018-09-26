@@ -328,6 +328,10 @@ This is not the case anymore as the `source` filed is now declared as `private`.
 - `BasePluginConvention` is now abstract.
 - `ProjectReportsPluginConvention` is now abstract.
 
+### Removal of deprecated CLI options
+
+- Removed `--no-search-upward` option.
+
 ### System properties `test.single` and `test.debug` have been removed
 
 The `test.single` filter mechanism has been removed. You must select tests from the command-line with [`--tests`](userguide/java_testing.html#simple_name_pattern).

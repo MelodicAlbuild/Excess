@@ -37,7 +37,6 @@ public class BuildLayoutParametersBuildOptions {
         List<BuildOption<BuildLayoutParameters>> options = new ArrayList<BuildOption<BuildLayoutParameters>>();
         options.add(new GradleUserHomeOption());
         options.add(new ProjectDirOption());
-        options.add(new NoSearchUpwardsOption());
         BuildLayoutParametersBuildOptions.options = Collections.unmodifiableList(options);
     }
 
@@ -69,21 +68,6 @@ public class BuildLayoutParametersBuildOptions {
         public void applyTo(String value, BuildLayoutParameters settings, Origin origin) {
             Transformer<File, String> resolver = new BasicFileResolver(settings.getCurrentDir());
             settings.setProjectDir(resolver.transform(value));
-        }
-    }
-
-    public static class NoSearchUpwardsOption extends EnabledOnlyBooleanBuildOption<BuildLayoutParameters> {
-        private static final String LONG_OPTION = "no-search-upward";
-        private static final String SHORT_OPTION = "u";
-
-        public NoSearchUpwardsOption() {
-            super(null, CommandLineOptionConfiguration.create(LONG_OPTION, SHORT_OPTION, "Don't search in parent folders for a settings file."));
-        }
-
-        @Override
-        public void applyTo(BuildLayoutParameters settings, Origin origin) {
-            settings.setSearchUpwards(false);
-            settings.addDeprecation(String.format("--%s/-%s", LONG_OPTION, SHORT_OPTION));
         }
     }
 }
