@@ -291,6 +291,11 @@ The `IdeaModule` Tooling API model element contains methods to retrieve resource
 In previous Gradle versions the `source` filed in `SourceTask` was accessible from subclasses.
 This is not the case anymore as the `source` filed is now declared as `private`.
 
+### Invalid project and domain object names are no longer supported
+
+Previously, it was deprecated for project and domain object names to be empty, start or end with `.` or contain any of the following characters: ` /\:<>"?*|`.
+The use of such names now causes the build to fail.
+
 ### Changes to previously deprecated APIs
 
 - The `org.gradle.plugins.signing.Signature` methods `getToSignArtifact()` and `setFile(File)` are removed.
