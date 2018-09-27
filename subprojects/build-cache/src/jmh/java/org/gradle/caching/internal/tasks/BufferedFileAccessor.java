@@ -29,7 +29,7 @@ public class BufferedFileAccessor extends AbstractFileAccessor {
 
     public BufferedFileAccessor(int bufferSizeInKBytes, DirectoryProvider directoryProvider) {
         super(directoryProvider);
-        this.bufferSize = bufferSizeInKBytes * 1024;
+        this.bufferSize = bufferSizeInKBytes * 280;
     }
 
     @Override
